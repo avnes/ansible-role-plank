@@ -1,0 +1,58 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+docker:
+  containers:
+    - name: ansible-role-plank-arch
+      image: pritunl/archlinux
+      image_version: 'latest'
+      command: /bin/bash
+      dockerfile: tests/DockerFile-ArchLinux
+      ansible_groups:
+        - group1
+    - name: ansible-role-plank-debian-sid
+      image: debian
+      image_version: 'sid'
+      command: /bin/bash
+      dockerfile: tests/DockerFile-Debian-sid
+      ansible_groups:
+        - group2
+    - name: ansible-role-plank-debian-stretch
+      image: debian
+      image_version: 'stretch'
+      command: /bin/bash
+      dockerfile: tests/DockerFile-Debian-stretch
+      ansible_groups:
+        - group2
+    - name: ansible-role-plank-fedora-24
+      image: fedora
+      image_version: '24'
+      command: /bin/bash
+      dockerfile: tests/DockerFile-Fedora-24
+      ansible_groups:
+        - group3
+    - name: ansible-role-plank-fedora-25
+      image: fedora
+      image_version: '25'
+      command: /bin/bash
+      dockerfile: tests/DockerFile-Fedora-25
+      ansible_groups:
+        - group3
+    - name: ansible-role-plank-ubuntu-xenial
+      image: ubuntu
+      image_version: '16.04'
+      command: /bin/bash
+      dockerfile: tests/DockerFile-Ubuntu-xenial
+      ansible_groups:
+        - group4
+    - name: ansible-role-plank-ubuntu-yakkety
+      image: ubuntu
+      image_version: '16.10'
+      command: /bin/bash
+      dockerfile: tests/DockerFile-Ubuntu-yakkety
+      ansible_groups:
+        - group4
+verifier:
+  name: testinfra

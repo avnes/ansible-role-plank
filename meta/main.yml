@@ -1,0 +1,33 @@
+galaxy_info:
+  author: avnes
+  description: Will install plank and setup basic configuration
+  company:
+
+  license: license (MIT)
+
+  min_ansible_version: 2.0
+
+  platforms:
+  - name: Fedora
+    versions:
+    - 24
+    - 25
+  - name: ArchLinux
+    versions:
+    - all
+    - any
+  - name: Ubuntu
+    versions:
+    - xenial
+    - yakkety
+  - name: Debian
+    versions:
+    - stretch
+    - sid
+
+  galaxy_tags:
+  - dock
+  - utilities
+  - menu
+
+dependencies: []
