@@ -62,7 +62,7 @@
 # This needs to be rewritten with regexp to find the launcher name from the file name
 - name: Configure dock launchers
   template:
-    src: {{ item }}.dockitem.j2
+    src: "{{ item }}.dockitem.j2"
     dest: "~{{ config_owner }}/.config/plank/dock1/launchers/{{ item }}.dockitem"
     owner: "{{ config_owner }}"
     group: "{{ config_owner_primary_group }}"

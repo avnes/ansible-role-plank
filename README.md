@@ -1,6 +1,6 @@
 master: [![Build Status](https://travis-ci.org/avnes/ansible-role-plank.png?branch=master)](https://travis-ci.org/avnes/ansible-role-plank) develop: [![Build Status](https://travis-ci.org/avnes/ansible-role-plank.png?branch=develop)](https://travis-ci.org/avnes/ansible-role-plank)
 
-# Role Name
+# ansible-role-plank
 
 Ansible role for installing plank and performing basic setup and configuration.
 
