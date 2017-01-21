@@ -3,7 +3,12 @@ language: python
 python: "2.7"
 
 # Use the new container infrastructure
-sudo: false
+sudo: required
+
+before_install:
+ - sudo useradd -d /home/ansible-test-user ansible-test-user
+ - sudo mkdir -p /home/ansible-test-user/.config/plank/dock1/launchers/
+ - sudo chown -R ansible-test-user:ansible-test-user /home/ansible-test-user
 
 # Install ansible
 addons:

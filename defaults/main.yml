@@ -1,2 +1,28 @@
 ---
 # defaults file for ansible-role-plank
+
+config_owner: "{{ ansible_user_id }}"
+
+config_owner_primary_group: "{{ config_owner }}"
+
+plank_dock_items:
+  - '/usr/share/applications/atom.desktop'
+  - '/usr/share/applications/chromium-browser.desktop'
+  - '/usr/share/applications/keepassx2.desktop'
+  - '/usr/share/applications/lxterminal.desktop'
+  - '/usr/share/applications/nm-connection-editor.desktop'
+  - '/usr/share/applications/pcmanfm.desktop'
+
+clippy_dock_item_on: true
+clippy_max_entries: 15
+clippy_timer_delay: 500
+clipy_track_mouse_selections: false
+
+clock_dock_item_on: true
+clock_24h_format: true
+clock_show_digital: true
+clock_show_date: false
+
+desktop_dock_item_on: true
+
+trash_dock_item_on: true
