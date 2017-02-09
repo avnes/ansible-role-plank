@@ -6,12 +6,12 @@ config_owner: "{{ ansible_user_id }}"
 config_owner_primary_group: "{{ config_owner }}"
 
 plank_dock_items:
-  - '/usr/share/applications/atom.desktop'
-  - '/usr/share/applications/chromium-browser.desktop'
-  - '/usr/share/applications/keepassx2.desktop'
-  - '/usr/share/applications/lxterminal.desktop'
-  - '/usr/share/applications/nm-connection-editor.desktop'
-  - '/usr/share/applications/pcmanfm.desktop'
+  - {name: 'atom', path: '/usr/share/applications/atom.desktop'}
+  - {name: 'chromium-browser', path: '/usr/share/applications/chromium-browser.desktop'}
+  - {name: 'keepassx2', path: '/usr/share/applications/keepassx2.desktop'}
+  - {name: 'lxterminal', path: '/usr/share/applications/lxterminal.desktop'}
+  - {name: 'nm-connection-editor', path: '/usr/share/applications/nm-connection-editor.desktop'}
+  - {name: 'pcmanfm', path: '/usr/share/applications/pcmanfm.desktop'}
 
 clippy_dock_item_on: true
 clippy_max_entries: 15

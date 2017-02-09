@@ -1,4 +1,6 @@
 ---
+ansible:
+  playbook: tests/test.yml
 dependency:
   name: galaxy
 driver:

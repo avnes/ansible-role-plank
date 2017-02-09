@@ -1,0 +1,22 @@
+ansible-role-plank-arch ansible_connection=docker
+ansible-role-plank-debian-sid ansible_connection=docker
+ansible-role-plank-debian-stretch ansible_connection=docker
+ansible-role-plank-fedora-24 ansible_connection=docker
+ansible-role-plank-fedora-25 ansible_connection=docker
+ansible-role-plank-ubuntu-xenial ansible_connection=docker
+ansible-role-plank-ubuntu-yakkety ansible_connection=docker
+
+[group4]
+ansible-role-plank-ubuntu-xenial
+ansible-role-plank-ubuntu-yakkety
+
+[group1]
+ansible-role-plank-arch
+
+[group3]
+ansible-role-plank-fedora-24
+ansible-role-plank-fedora-25
+
+[group2]
+ansible-role-plank-debian-sid
+ansible-role-plank-debian-stretch

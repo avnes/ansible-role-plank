@@ -23,7 +23,7 @@ pip install testinfra
 config_owner:
   String (mandatory) to specify the Linux user that should have plank setup for them.
 
-launcher_item_app:
+plank_dock_items:
   List (mandatory) to specify which applications to add to the plank launcher.
 ```
 
@@ -40,21 +40,22 @@ None
   vars:
     owner: 'maya'
     app_list:
-      - '/usr/share/applications/chromium-browser.desktop'
-      - '/usr/share/applications/pcmanfm.desktop'
-      - '/usr/share/applications/atom.desktop'
-      - '/usr/share/applications/keepassx2.desktop'
-      - '/usr/share/applications/lxterminal.desktop'
+      - {name: 'atom', path: '/usr/share/applications/atom.desktop'}
+      - {name: 'chromium-browser', path: '/usr/share/applications/chromium-browser.desktop'}
+      - {name: 'keepassx2', path: '/usr/share/applications/keepassx2.desktop'}
+      - {name: 'lxterminal', path: '/usr/share/applications/lxterminal.desktop'}
+      - {name: 'nm-connection-editor', path: '/usr/share/applications/nm-connection-editor.desktop'}
+      - {name: 'pcmanfm', path: '/usr/share/applications/pcmanfm.desktop'}
   roles:
-     - { role: avnes.ansible-role-plank, config_owner: "{{ owner }}", launcher_item_app: "{{ app_list }}" }
+     - { role: avnes.ansible-role-plank, config_owner: "{{ owner }}", plank_dock_items: "{{ app_list }}" }
 ```
 
 ## Test
 
 ```
 ANSIBLE_CONFIG=./role.cfg; export ANSIBLE_CONFIG
-ansible-playbook -i tests/inventory --syntax-check role.yml
-ansible-playbook -i tests/inventory --check --connection=local --sudo -vvvv role.yml -K
+ansible-playbook -i tests/inventory --syntax-check tests/test.yml
+ansible-playbook -i tests/inventory --check --connection=local --sudo -vvvv tests/test.yml -K
 ```
 
 ## Molecule test
@@ -68,7 +69,7 @@ molecule test
 
 ```
 ANSIBLE_CONFIG=./role.cfg; export ANSIBLE_CONFIG
-ansible-playbook -i tests/inventory --connection=local --sudo -vvvv role.yml -K
+ansible-playbook -i tests/inventory --connection=local --sudo -vvvv tests/test.yml -K
 ```
 
 ## License
