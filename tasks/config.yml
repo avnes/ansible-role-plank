@@ -39,7 +39,7 @@
 - name: Configure desktop item for plank
   copy:
     src: desktop.dockitem
-    dest: "~{{ config_owner }}/.config/plank/dock1/launchers/desktop.dockitems"
+    dest: "~{{ config_owner }}/.config/plank/dock1/launchers/desktop.dockitem"
     owner: "{{ config_owner }}"
     group: "{{ config_owner_primary_group }}"
     mode: 0700
@@ -48,11 +48,9 @@
 - name: Configure trash item for plank
   copy:
     src: trash.dockitem
-    dest: "~{{ config_owner }}/.config/plank/dock1/launchers/trash.dockitems"
+    dest: "~{{ config_owner }}/.config/plank/dock1/launchers/trash.dockitem"
     owner: "{{ config_owner }}"
     group: "{{ config_owner_primary_group }}"
     mode: 0700
   when: "{{ desktop_dock_item_on == true }}"
-
-- name: test something
-  command: cat ~ansible-test-user/.config/plank/dock1/launchers/keepassx2.dockitem
+  
