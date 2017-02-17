@@ -53,4 +53,3 @@
     group: "{{ config_owner_primary_group }}"
     mode: 0700
   when: "{{ desktop_dock_item_on == true }}"
-  
