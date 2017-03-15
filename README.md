@@ -22,6 +22,11 @@ pip install testinfra
 ```
 config_owner:
   String (mandatory) to specify the Linux user that should have plank setup for them.
+  Default: "{{ ansible_user_id }}"
+
+config_owner_primary_group:
+  String (optional) to specify the group ownership for the plank setup.
+  Default: "{{ config_owner }}"
 
 plank_dock_items:
   List (mandatory) to specify which applications to add to the plank launcher.
@@ -38,8 +43,8 @@ None
 ```
 - hosts: all
   vars:
-    owner: 'maya'
-    app_list:
+    config_owner: 'maya'
+    plank_dock_items:
       - {name: 'atom', path: '/usr/share/applications/atom.desktop'}
       - {name: 'chromium-browser', path: '/usr/share/applications/chromium-browser.desktop'}
       - {name: 'keepassx2', path: '/usr/share/applications/keepassx2.desktop'}
@@ -47,15 +52,7 @@ None
       - {name: 'nm-connection-editor', path: '/usr/share/applications/nm-connection-editor.desktop'}
       - {name: 'pcmanfm', path: '/usr/share/applications/pcmanfm.desktop'}
   roles:
-     - { role: avnes.ansible-role-plank, config_owner: "{{ owner }}", plank_dock_items: "{{ app_list }}" }
-```
-
-## Test
-
-```
-ANSIBLE_CONFIG=./role.cfg; export ANSIBLE_CONFIG
-ansible-playbook -i tests/inventory --syntax-check tests/test.yml
-ansible-playbook -i tests/inventory --check --connection=local --sudo -vvvv tests/test.yml -K
+     - { role: avnes.ansible-role-plank }
 ```
 
 ## Molecule test
@@ -63,13 +60,6 @@ ansible-playbook -i tests/inventory --check --connection=local --sudo -vvvv test
 ```
 molecule create
 molecule test
-```
-
-## Run
-
-```
-ANSIBLE_CONFIG=./role.cfg; export ANSIBLE_CONFIG
-ansible-playbook -i tests/inventory --connection=local --sudo -vvvv tests/test.yml -K
 ```
 
 ## License

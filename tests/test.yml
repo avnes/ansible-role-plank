@@ -1,8 +1,8 @@
 ---
 - hosts: all
   vars:
-    owner: 'ansible-test-user'
-    app_list:
+    config_owner: 'ansible-test-user'
+    plank_dock_items:
       - {name: 'atom', path: '/usr/share/applications/atom.desktop'}
       - {name: 'chromium-browser', path: '/usr/share/applications/chromium-browser.desktop'}
       - {name: 'keepassx2', path: '/usr/share/applications/keepassx2.desktop'}
@@ -10,4 +10,4 @@
       - {name: 'nm-connection-editor', path: '/usr/share/applications/nm-connection-editor.desktop'}
       - {name: 'pcmanfm', path: '/usr/share/applications/pcmanfm.desktop'}
   roles:
-    - { role: ansible-role-plank, config_owner: "{{ owner }}", plank_dock_items: "{{ app_list }}" }
+    - { role: ansible-role-plank }
