@@ -35,7 +35,7 @@
 - name: Install software on Ubuntu
   when:
   - ansible_distribution == 'Ubuntu'
-  - ansible_lsb.major_release|int >= 16 
+  - ansible_lsb.major_release|int >= 16
   become: true
   apt:
     name: "{{ item.name }}"
