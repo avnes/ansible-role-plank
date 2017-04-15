@@ -28,6 +28,13 @@ docker:
       dockerfile: tests/Dockerfile-Debian-stretch
       ansible_groups:
         - ansible-role-plank-debian-stretch
+    - name: ansible-role-plank-debian-jessie
+      image: debian
+      image_version: 'jessie'
+      command: /bin/bash
+      dockerfile: tests/Dockerfile-Debian-jessie
+      ansible_groups:
+        - ansible-role-plank-debian-jessie
     - name: ansible-role-plank-fedora-24
       image: fedora
       image_version: '24'

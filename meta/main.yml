@@ -25,6 +25,7 @@ galaxy_info:
     versions:
     - stretch
     - sid
+    - jessie
   - name: opensuse
     versions:
     - 42.2

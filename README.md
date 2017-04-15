@@ -69,3 +69,7 @@ MIT
 ## Author Information
 
 <https://github.com/avnes>
+
+## Credits
+
+<http://www.techbear.co/installing-plank-dock-on-debian-jessie/>
