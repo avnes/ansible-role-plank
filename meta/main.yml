@@ -11,12 +11,31 @@ galaxy_info:
   platforms:
   - name: Fedora
     versions:
-    - all
+    - 24
+    - 25
+    - 26
+    - 27
+    - 28
+    - 29
+    - 30
+    - 31
+    - 32
+    - 33
     - 34
   - name: Ubuntu
     versions:
-    - all
+    - xenial
+    - yakkety
+    - zesty
+    - artful
+    - bionic
+    - cosmic
+    - disco
+    - eoan
+    - focal
+    - groovy
     - hirsute
+    - impish
   - name: ArchLinux
     versions:
     - all
@@ -26,7 +45,7 @@ galaxy_info:
     - sid
   - name: opensuse
     versions:
-    - leap
+    - 15.2
 
   galaxy_tags:
   - dock
