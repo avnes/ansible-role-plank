@@ -6,20 +6,11 @@ Ansible role for installing plank and performing basic setup and configuration.
 
 ## Requirements
 
-None for running the role.
-
-In order to continuously develop and test this role, you will need docker, pip, molecule, testinfra and python-docker-py installed.
-
-Install docker, pip and python-docker-py with your distributions package manager. Then install molecule and tesinfra with pip:
-
-```
-pip install molecule
-pip install testinfra
-```
+None.
 
 ## Role Variables
 
-```
+```yaml
 config_owner:
   String (mandatory) to specify the Linux user that should have plank setup for them.
   Default: "{{ ansible_user_id }}"
@@ -40,7 +31,7 @@ None
 
 ## Example Playbook
 
-```
+```yaml
 - hosts: all
   vars:
     config_owner: 'maya'
@@ -57,8 +48,10 @@ None
 
 ## Molecule test
 
-```
-molecule create
+```bash
+virtualenv ~/.virtualenv/ansible-role-plank
+source ~/.virtualenv/ansible-role-plank/bin/activate
+pip install -r requirements.txt
 molecule test
 ```
 
@@ -69,7 +62,3 @@ MIT
 ## Author Information
 
 <https://github.com/avnes>
-
-## Credits
-
-<http://www.techbear.co/installing-plank-dock-on-debian-jessie/>

@@ -1,34 +1,51 @@
+---
 galaxy_info:
+  role_name: plank
   author: avnes
-  description: Will install plank and setup basic configuration
-  company:
+  description: Will install plank and setup basic configuration.
 
   license: license (MIT)
 
-  min_ansible_version: 2.0
+  min_ansible_version: 2.9
 
   platforms:
   - name: Fedora
     versions:
     - 24
     - 25
-  - name: ArchLinux
-    versions:
-    - all
-    - any
+    - 26
+    - 27
+    - 28
+    - 29
+    - 30
+    - 31
+    - 32
+    - 33
+    - 34
   - name: Ubuntu
     versions:
     - xenial
     - yakkety
     - zesty
+    - artful
+    - bionic
+    - cosmic
+    - disco
+    - eoan
+    - focal
+    - groovy
+    - hirsute
+    - impish
+  - name: ArchLinux
+    versions:
+    - all
+    - any
   - name: Debian
     versions:
-    - stretch
     - sid
-    - jessie
   - name: opensuse
     versions:
-    - 42.2
+    - 15.2
 
   galaxy_tags:
   - dock

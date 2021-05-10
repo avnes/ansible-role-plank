@@ -1,0 +1,50 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  vars:
+    launcher_name:
+      - 'atom'
+      - 'chromium-browser'
+      - 'keepassx2'
+      - 'lxterminal'
+      - 'trash'
+      - 'nm-connection-editor'
+      - 'pcmanfm'
+      - 'clippy'
+      - 'clock'
+      - 'desktop'
+    launcher_path: '/home/ansible-test-user/.config/plank/dock1/launchers/'
+  gather_facts: false
+  tasks:
+  - name: Stat the file
+    ansible.builtin.stat:
+      path: "{{ launcher_path }}{{ item }}.dockitem"
+    loop: "{{ launcher_name }}"
+    register: stat_plank
+
+  - name: Assert that launcher file exists
+    assert:
+      that: item.stat.exists
+    loop: "{{ stat_plank.results }}"
+
+  - name: Assert that launcher file is a regular file
+    assert:
+      that: item.stat.isreg
+    loop: "{{ stat_plank.results }}"
+
+  - name: Assert that launcher file is owned by user ansible-test-user
+    assert:
+      that: item.stat.pw_name == 'ansible-test-user'
+    loop: "{{ stat_plank.results }}"
+
+  - name: Assert that launcher file is owned by group ansible-test-user
+    assert:
+      that: item.stat.gr_name == 'ansible-test-user'
+    loop: "{{ stat_plank.results }}"
+
+  - name: Assert that launcher file has mode 0700
+    assert:
+      that: item.stat.mode == '0700'
+    loop: "{{ stat_plank.results }}"

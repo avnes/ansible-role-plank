@@ -25,7 +25,7 @@
     owner: "{{ config_owner }}"
     group: "{{ config_owner_primary_group }}"
     mode: 0700
-  when: "{{ clippy_dock_item_on == true }}"
+  when: clippy_dock_item_on is defined and clippy_dock_item_on
 
 - name: Configure clock item for plank
   template:
@@ -34,7 +34,7 @@
     owner: "{{ config_owner }}"
     group: "{{ config_owner_primary_group }}"
     mode: 0700
-  when: "{{ clock_dock_item_on == true }}"
+  when: clock_dock_item_on is defined and clock_dock_item_on
 
 - name: Configure desktop item for plank
   copy:
@@ -43,7 +43,7 @@
     owner: "{{ config_owner }}"
     group: "{{ config_owner_primary_group }}"
     mode: 0700
-  when: "{{ desktop_dock_item_on == true }}"
+  when: desktop_dock_item_on is defined and desktop_dock_item_on
 
 - name: Configure trash item for plank
   copy:
@@ -52,4 +52,4 @@
     owner: "{{ config_owner }}"
     group: "{{ config_owner_primary_group }}"
     mode: 0700
-  when: "{{ desktop_dock_item_on == true }}"
+  when: desktop_dock_item_on is defined and desktop_dock_item_on
