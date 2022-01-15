@@ -1,12 +1,12 @@
-master: [![Build Status](https://travis-ci.org/avnes/ansible-role-plank.png?branch=master)](https://travis-ci.org/avnes/ansible-role-plank) develop: [![Build Status](https://travis-ci.org/avnes/ansible-role-plank.png?branch=develop)](https://travis-ci.org/avnes/ansible-role-plank)
-
 # ansible-role-plank
+
+![Ansible](https://github.com/avnes/ansible-role-plank/actions/workflows/ansible.yaml/badge.svg)
 
 Ansible role for installing plank and performing basic setup and configuration.
 
 ## Requirements
 
-None.
+Poetry. Install it from <https://python-poetry.org/docs/>
 
 ## Role Variables
 
@@ -46,12 +46,17 @@ None
      - { role: avnes.ansible-role-plank }
 ```
 
-## Molecule test
+## For pip compability
 
 ```bash
-virtualenv ~/.virtualenv/ansible-role-plank
-source ~/.virtualenv/ansible-role-plank/bin/activate
-pip install -r requirements.txt
+poetry export --dev --output requirements.txt
+```
+
+## Test
+
+```bash
+poetry install
+poetry shell
 molecule test
 ```
 
@@ -61,4 +66,4 @@ MIT
 
 ## Author Information
 
-<https://github.com/avnes>
+<https://github.com/avnes/>
