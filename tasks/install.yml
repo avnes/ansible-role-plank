@@ -3,7 +3,7 @@
 - name: Install software on Fedora
   when: ansible_distribution == 'Fedora'
   become: true
-  dnf:
+  ansible.builtin.dnf:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
   with_items:
@@ -12,7 +12,7 @@
 - name: Install software on openSUSE
   when: ansible_os_family == 'Suse'
   become: true
-  zypper:
+  ansible.builtin.zypper:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
   with_items:
@@ -22,14 +22,14 @@
 - name: Update software cache for pacman
   when: ansible_distribution == 'ArchLinux'
   become: true
-  pacman:
+  ansible.builtin.pacman:
     update_cache: yes
   changed_when: false
 
 - name: Install software on ArchLinux
   when: ansible_distribution == 'ArchLinux'
   become: true
-  pacman:
+  ansible.builtin.pacman:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
   with_items:
@@ -38,7 +38,7 @@
 - name: Update software cache for apt-get
   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
   become: true
-  apt:
+  ansible.builtin.apt:
     update_cache: yes
   changed_when: false
 
@@ -47,7 +47,7 @@
   - ansible_distribution == 'Ubuntu'
   - ansible_lsb.major_release|int >= 16
   become: true
-  apt:
+  ansible.builtin.apt:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
   with_items:
@@ -56,7 +56,7 @@
 - name: Install software on Debian
   when: ansible_distribution == 'Debian'
   become: true
-  apt:
+  ansible.builtin.apt:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
   with_items:

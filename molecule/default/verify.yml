@@ -25,26 +25,26 @@
     register: stat_plank
 
   - name: Assert that launcher file exists
-    assert:
+    ansible.builtin.assert:
       that: item.stat.exists
     loop: "{{ stat_plank.results }}"
 
   - name: Assert that launcher file is a regular file
-    assert:
+    ansible.builtin.assert:
       that: item.stat.isreg
     loop: "{{ stat_plank.results }}"
 
   - name: Assert that launcher file is owned by user ansible-test-user
-    assert:
+    ansible.builtin.assert:
       that: item.stat.pw_name == 'ansible-test-user'
     loop: "{{ stat_plank.results }}"
 
   - name: Assert that launcher file is owned by group ansible-test-user
-    assert:
+    ansible.builtin.assert:
       that: item.stat.gr_name == 'ansible-test-user'
     loop: "{{ stat_plank.results }}"
 
   - name: Assert that launcher file has mode 0700
-    assert:
+    ansible.builtin.assert:
       that: item.stat.mode == '0700'
     loop: "{{ stat_plank.results }}"

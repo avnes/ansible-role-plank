@@ -1,7 +1,7 @@
 ---
 
 - name: Make sure config directory exist
-  file:
+  ansible.builtin.file:
     path: "~{{ config_owner }}/.config/plank/dock1/launchers"
     state: directory
     owner: "{{ config_owner }}"
@@ -10,7 +10,7 @@
 
 # This needs to be rewritten with regexp to find the launcher name from the file name
 - name: Configure dock launchers
-  template:
+  ansible.builtin.template:
     src: "launcher.dockitem.j2"
     dest: "~{{ config_owner }}/.config/plank/dock1/launchers/{{ item.name }}.dockitem"
     owner: "{{ config_owner }}"
@@ -19,7 +19,7 @@
   with_items: "{{ plank_dock_items }}"
 
 - name: Configure clippy item for plank
-  template:
+  ansible.builtin.template:
     src: clippy.dockitem.j2
     dest: "~{{ config_owner }}/.config/plank/dock1/launchers/clippy.dockitem"
     owner: "{{ config_owner }}"
@@ -28,7 +28,7 @@
   when: clippy_dock_item_on is defined and clippy_dock_item_on
 
 - name: Configure clock item for plank
-  template:
+  ansible.builtin.template:
     src: clock.dockitem.j2
     dest: "~{{ config_owner }}/.config/plank/dock1/launchers/clock.dockitem"
     owner: "{{ config_owner }}"
@@ -37,7 +37,7 @@
   when: clock_dock_item_on is defined and clock_dock_item_on
 
 - name: Configure desktop item for plank
-  copy:
+  ansible.builtin.copy:
     src: desktop.dockitem
     dest: "~{{ config_owner }}/.config/plank/dock1/launchers/desktop.dockitem"
     owner: "{{ config_owner }}"
@@ -46,7 +46,7 @@
   when: desktop_dock_item_on is defined and desktop_dock_item_on
 
 - name: Configure trash item for plank
-  copy:
+  ansible.builtin.copy:
     src: trash.dockitem
     dest: "~{{ config_owner }}/.config/plank/dock1/launchers/trash.dockitem"
     owner: "{{ config_owner }}"
