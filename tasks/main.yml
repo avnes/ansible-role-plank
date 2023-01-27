@@ -1,4 +1,6 @@
 ---
-- include: install.yml
+- name: Installation
+  ansible.builtin.import_tasks: install.yml
 
-- include: config.yml
+- name: Configuration
+  ansible.builtin.import_tasks: config.yml
